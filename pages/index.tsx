@@ -74,6 +74,46 @@ const Home: NextPage = () => {
           {error}
         </Alert>
       )}
+      <form onSubmit={form.onSubmit(handleSubmit)}>
+        <TextInput
+          mt="md"
+          id="email"
+          label="Email*"
+          placeholder="example@gmail.com"
+          {...form.getInputProps('email')}
+        />
+        <PasswordInput
+          mt="md"
+          id="password"
+          placeholder="password"
+          label="Password*"
+          description="Must be min 5 char"
+          {...form.getInputProps}
+        />
+        <Group mt="xl" position="apart">
+          <Anchor
+            component="button"
+            type="button"
+            size="xs"
+            className="text-gray-300"
+            onClick={() => {
+              setIsRegister(!isRegister)
+              setError('')
+            }}
+          >
+            {isRegister
+              ? 'Have an account? Login'
+              : "Don't have an account Register"}
+          </Anchor>
+          <Button
+            leftIcon={<IconDatabase size={14} />}
+            color="cyan"
+            type="submit"
+          >
+            {isRegister ? 'Register' : 'Login'}
+          </Button>
+        </Group>
+      </form>
     </Layout>
   )
 }
