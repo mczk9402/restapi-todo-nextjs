@@ -88,7 +88,7 @@ const Home: NextPage = () => {
           placeholder="password"
           label="Password*"
           description="Must be min 5 char"
-          {...form.getInputProps}
+          {...form.getInputProps('password')}
         />
         <Group mt="xl" position="apart">
           <Anchor
